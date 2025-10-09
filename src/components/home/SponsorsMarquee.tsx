@@ -1,4 +1,8 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const SponsorsMarquee = () => {
+  const { t } = useLanguage();
+  
   const sponsors = [
     { name: "Sponsor 1", logo: "S1" },
     { name: "Sponsor 2", logo: "S2" },
@@ -8,14 +12,13 @@ const SponsorsMarquee = () => {
     { name: "Sponsor 6", logo: "S6" },
   ];
 
-  // Double the sponsors for seamless loop
   const allSponsors = [...sponsors, ...sponsors];
 
   return (
     <section id="sponsors" className="py-16 px-4 bg-background overflow-hidden">
       <div className="container mx-auto max-w-7xl mb-8">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Partners & Sponsors</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('sponsorsTitle')}</h2>
           <p className="text-lg text-muted-foreground">
             Thank you to our valued partners who make our mission possible
           </p>

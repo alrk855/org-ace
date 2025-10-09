@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
   const [displayText, setDisplayText] = useState("");
-  const fullText = "Welcome — Building learning through play.";
+  const fullText = t('heroTitle');
   
   useEffect(() => {
     let index = 0;
@@ -20,16 +21,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <section
-      className="relative h-screen flex items-center justify-center overflow-hidden -mt-[88px]"
-      style={{
-        backgroundImage: `url(${heroBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-[88px] bg-gradient-to-br from-[hsl(252,39%,45%)] via-[hsl(217,49%,50%)] to-[hsl(180,100%,85%)]">
+      {/* Animated background blobs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(252,39%,55%)]/30 rounded-full blur-3xl animate-blob"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[hsl(217,49%,60%)]/30 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-[hsl(180,100%,75%)]/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+      </div>
+      
       {/* Overlay */}
-      <div className="absolute inset-0 bg-primary/40"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-background/20"></div>
       
       {/* Content */}
       <div className="relative z-10 text-center px-4">

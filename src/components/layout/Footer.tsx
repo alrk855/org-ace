@@ -4,22 +4,24 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
-      toast.error("Please enter your email address");
+      toast.error(t('emailLabel'));
       return;
     }
     if (!consent) {
-      toast.error("Please agree to receive our newsletter");
+      toast.error(t('consentText'));
       return;
     }
-    toast.success("Thank you for subscribing to our newsletter!");
+    toast.success(t('subscribe'));
     setEmail("");
     setConsent(false);
   };
@@ -44,7 +46,7 @@ const Footer = () => {
               <span className="font-bold text-lg">@2 inc</span>
             </div>
             <p className="text-sm text-white/80 mb-4">
-              Building learning through play. Fostering creativity and development in children across our community.
+              {t('footerAbout')}
             </p>
             <div className="flex items-center gap-2">
               {socialLinks.map((social) => (
@@ -64,33 +66,33 @@ const Footer = () => {
 
           {/* Column 2: Contact */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact Us</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('contactUs')}</h3>
             <div className="space-y-3 text-sm">
-              <a href="tel:+38970123456" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <a href={`tel:${t('phone').replace(/\s/g, '')}`} className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span>+389 70 123 456</span>
+                <span>{t('phone')}</span>
               </a>
-              <a href="mailto:info@2inc.org" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <a href={`mailto:${t('email')}`} className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <span>info@2inc.org</span>
+                <span>{t('email')}</span>
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span>123 Main Street<br />Skopje, North Macedonia</span>
+                <span>{t('address')}</span>
               </div>
             </div>
           </div>
 
           {/* Column 3: Newsletter */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Newsletter</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('newsletter')}</h3>
             <p className="text-sm text-white/80 mb-4">
-              Stay updated with our latest news and projects.
+              {t('newsletterDesc')}
             </p>
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <Input
                 type="email"
-                placeholder="Your email address"
+                placeholder={t('emailPlaceholder')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-white/10 border-white/30 text-white placeholder:text-white/50"
@@ -103,11 +105,11 @@ const Footer = () => {
                   className="mt-1"
                 />
                 <label htmlFor="newsletter-consent" className="text-xs text-white/70 cursor-pointer">
-                  I agree to receive newsletters and updates from @2 inc
+                  {t('consentText')}
                 </label>
               </div>
               <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent-hover">
-                Subscribe
+                {t('subscribe')}
               </Button>
             </form>
           </div>
@@ -117,13 +119,13 @@ const Footer = () => {
       {/* Footnote Bar */}
       <div className="bg-[hsl(var(--footer-footnote))] py-4 px-4">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
-          <p>© 2025 @2 inc — All rights reserved.</p>
+          <p>© 2025 @2 inc — {t('allRightsReserved')}.</p>
           <div className="flex items-center gap-4">
-            <a href="tel:+38970123456" className="hover:text-accent transition-colors">
-              +389 70 123 456
+            <a href={`tel:${t('phone').replace(/\s/g, '')}`} className="hover:text-accent transition-colors">
+              {t('phone')}
             </a>
-            <a href="mailto:info@2inc.org" className="hover:text-accent transition-colors">
-              info@2inc.org
+            <a href={`mailto:${t('email')}`} className="hover:text-accent transition-colors">
+              {t('email')}
             </a>
           </div>
         </div>

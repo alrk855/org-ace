@@ -1,21 +1,22 @@
 import { Users, Heart, Target } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhoWeAre = () => {
+  const { t } = useLanguage();
+  
   const stats = [
-    { icon: Users, value: "500+", label: "Children Reached" },
-    { icon: Heart, value: "25+", label: "Active Volunteers" },
-    { icon: Target, value: "15", label: "Ongoing Projects" },
+    { icon: Target, value: t('projectsCount'), label: t('projectsLabel') },
+    { icon: Users, value: t('childrenCount'), label: t('childrenLabel') },
+    { icon: Heart, value: t('volunteersCount'), label: t('volunteersLabel') },
   ];
 
   return (
     <section id="who-we-are" className="py-20 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Who We Are</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('whoWeAreTitle')}</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            @2 inc is a non-governmental organization dedicated to fostering creativity, learning, and development
-            in children through innovative play-based educational programs. We believe that play is fundamental to
-            healthy child development and lifelong learning.
+            {t('whoWeAreDesc')}
           </p>
         </div>
 

@@ -90,7 +90,7 @@ export default {
         },
         "marquee": {
           "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
         "blob": {
           "0%, 100%": { transform: "translate(0, 0) scale(1)" },

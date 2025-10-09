@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const DonateSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="donate" className="py-20 px-4 gradient-primary text-white">
       <div className="container mx-auto max-w-4xl text-center">
@@ -10,15 +13,14 @@ const DonateSection = () => {
           <Heart className="w-10 h-10 text-white" />
         </div>
         
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Make a Difference Today</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('donateSectionTitle')}</h2>
         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          Your support helps us create meaningful learning experiences for children in our community.
-          Every contribution, no matter the size, makes a real impact.
+          {t('donateSectionDesc')}
         </p>
         
         <Link to="/donate">
           <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-lg px-8 py-6 rounded-[14px] shadow-hover">
-            Donate Now
+            {t('donateButton')}
           </Button>
         </Link>
       </div>

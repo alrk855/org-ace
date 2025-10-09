@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const NewsCarousel = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -50,7 +52,7 @@ const NewsCarousel = () => {
     <section id="news" className="py-20 px-4 bg-muted/30">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest News</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('newsTitle')}</h2>
           <p className="text-lg text-muted-foreground">Stay updated with our recent activities and announcements</p>
         </div>
 

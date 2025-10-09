@@ -1,6 +1,9 @@
 import { Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TopStrip = () => {
+  const { t } = useLanguage();
+  
   const socialLinks = [
     { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
     { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
@@ -12,13 +15,13 @@ const TopStrip = () => {
     <div className="bg-[hsl(var(--top-strip-bg))] text-white py-2 px-4 text-sm">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center gap-4">
-          <a href="tel:+38970123456" className="flex items-center gap-2 hover:text-accent transition-colors">
+          <a href={`tel:${t('phone').replace(/\s/g, '')}`} className="flex items-center gap-2 hover:text-accent transition-colors">
             <Phone className="w-4 h-4" />
-            <span className="hidden sm:inline">+389 70 123 456</span>
+            <span className="hidden sm:inline">{t('phone')}</span>
           </a>
-          <a href="mailto:info@2inc.org" className="flex items-center gap-2 hover:text-accent transition-colors">
+          <a href={`mailto:${t('email')}`} className="flex items-center gap-2 hover:text-accent transition-colors">
             <Mail className="w-4 h-4" />
-            <span className="hidden sm:inline">info@2inc.org</span>
+            <span className="hidden sm:inline">{t('email')}</span>
           </a>
         </div>
         

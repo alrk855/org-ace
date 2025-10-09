@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -16,11 +17,9 @@ const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Check if at very top (reveal zone)
       if (currentScrollY < 8) {
         setIsVisible(true);
       } else {
-        // Show when scrolling up, hide when scrolling down
         setIsVisible(currentScrollY < lastScrollY);
       }
       
@@ -34,33 +33,33 @@ const Header = () => {
 
   const navItems = [
     {
-      label: "Welcome",
+      label: t('welcome'),
       dropdown: [
-        { label: "Who We Are", href: "/#who-we-are" },
-        { label: "News", href: "/#news" },
-        { label: "Partners & Sponsors", href: "/#sponsors" },
-        { label: "Donate", href: "/#donate" },
+        { label: t('whoWeAre'), href: "/#who-we-are" },
+        { label: t('news'), href: "/#news" },
+        { label: t('partnersSponsors'), href: "/#sponsors" },
+        { label: t('donate'), href: "/#donate" },
       ],
     },
     {
-      label: "About Us",
+      label: t('about'),
       dropdown: [
-        { label: "About", href: "/about" },
-        { label: "Meet the Team", href: "/team" },
-        { label: "Partners & Sponsors", href: "/partners" },
-        { label: "Documents & Reports", href: "/documents" },
-        { label: "Contact", href: "/contact" },
+        { label: t('aboutUs'), href: "/about" },
+        { label: t('meetTeam'), href: "/team" },
+        { label: t('partnersSponsors'), href: "/partners" },
+        { label: t('documents'), href: "/documents" },
+        { label: t('contact'), href: "/contact" },
       ],
     },
     {
-      label: "Projects",
+      label: t('projects'),
       dropdown: [
-        { label: "Current Projects", href: "/projects/current" },
-        { label: "Past Projects", href: "/projects/past" },
+        { label: t('currentProjects'), href: "/projects/current" },
+        { label: t('pastProjects'), href: "/projects/past" },
       ],
     },
-    { label: "News", href: "/news" },
-    { label: "Donate", href: "/donate", highlight: true },
+    { label: t('news'), href: "/news" },
+    { label: t('donate'), href: "/donate", highlight: true },
   ];
 
   return (
@@ -72,7 +71,6 @@ const Header = () => {
       <nav className="gradient-primary text-white">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center font-bold text-primary text-xl">
                 @2
@@ -80,7 +78,6 @@ const Header = () => {
               <span className="font-bold text-lg hidden sm:inline">@2 inc</span>
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {navItems.map((item) =>
                 item.dropdown ? (
@@ -141,19 +138,23 @@ const Header = () => {
                 )
               )}
               
-              {/* Language Toggle */}
               <div className="ml-4 flex items-center gap-1 border-l border-white/30 pl-4">
-                <button className="px-3 py-1 rounded hover:bg-white/10 transition-colors font-semibold">
+                <button 
+                  className={`px-3 py-1 rounded hover:bg-white/10 transition-colors ${language === 'en' ? 'font-semibold' : 'opacity-70'}`}
+                  onClick={() => setLanguage('en')}
+                >
                   EN
                 </button>
                 <span className="text-white/50">|</span>
-                <Link to="/mk" className="px-3 py-1 rounded hover:bg-white/10 transition-colors opacity-70">
+                <button 
+                  className={`px-3 py-1 rounded hover:bg-white/10 transition-colors ${language === 'mk' ? 'font-semibold' : 'opacity-70'}`}
+                  onClick={() => setLanguage('mk')}
+                >
                   MK
-                </Link>
+                </button>
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="lg:hidden p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -163,7 +164,6 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Mobile Navigation */}
           {mobileMenuOpen && (
             <div className="lg:hidden pb-4 animate-slide-down">
               {navItems.map((item) =>
@@ -200,10 +200,18 @@ const Header = () => {
                 )
               )}
               <div className="flex items-center gap-2 px-4 pt-4 border-t border-white/30 mt-4">
-                <button className="px-4 py-2 rounded-lg bg-white/10 font-semibold">EN</button>
-                <Link to="/mk" className="px-4 py-2 rounded-lg hover:bg-white/10 opacity-70">
+                <button 
+                  className={`px-4 py-2 rounded-lg ${language === 'en' ? 'bg-white/10 font-semibold' : 'hover:bg-white/10 opacity-70'}`}
+                  onClick={() => setLanguage('en')}
+                >
+                  EN
+                </button>
+                <button 
+                  className={`px-4 py-2 rounded-lg ${language === 'mk' ? 'bg-white/10 font-semibold' : 'hover:bg-white/10 opacity-70'}`}
+                  onClick={() => setLanguage('mk')}
+                >
                   MK
-                </Link>
+                </button>
               </div>
             </div>
           )}
