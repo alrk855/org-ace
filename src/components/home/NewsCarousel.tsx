@@ -58,10 +58,10 @@ const NewsCarousel = () => {
           {/* Left Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-full bg-gradient-to-r from-muted/90 to-transparent flex items-center justify-start pl-2 hover:from-muted transition-all duration-300"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-16 h-full bg-gradient-to-r from-background/95 to-transparent flex items-center justify-start pl-3 hover:from-background transition-all duration-300 group"
             aria-label="Previous"
           >
-            <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-soft hover:shadow-hover hover:bg-primary-hover transition-all">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 backdrop-blur-sm border border-primary/20 text-primary flex items-center justify-center shadow-elegant hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group-hover:scale-110">
               <ChevronLeft className="w-6 h-6" />
             </div>
           </button>
@@ -73,9 +73,9 @@ const NewsCarousel = () => {
                 <Link
                   key={item.id}
                   to={`/news/${item.id}`}
-                  className="group"
+                  className="group flex"
                 >
-                  <div className="bg-card rounded-[14px] overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="bg-card rounded-[14px] overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300 transform hover:-translate-y-1 flex flex-col w-full">
                     <div className="aspect-video overflow-hidden">
                       <img
                         src={item.image}
@@ -83,9 +83,9 @@ const NewsCarousel = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 flex-1 flex flex-col">
                       <div className="text-sm text-primary font-medium mb-2">{item.date}</div>
-                      <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
+                      <h3 className="text-lg font-semibold group-hover:text-primary transition-colors line-clamp-2">
                         {item.title}
                       </h3>
                     </div>
@@ -98,10 +98,10 @@ const NewsCarousel = () => {
           {/* Right Arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-full bg-gradient-to-l from-muted/90 to-transparent flex items-center justify-end pr-2 hover:from-muted transition-all duration-300"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-16 h-full bg-gradient-to-l from-background/95 to-transparent flex items-center justify-end pr-3 hover:from-background transition-all duration-300 group"
             aria-label="Next"
           >
-            <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-soft hover:shadow-hover hover:bg-primary-hover transition-all">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 backdrop-blur-sm border border-primary/20 text-primary flex items-center justify-center shadow-elegant hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group-hover:scale-110">
               <ChevronRight className="w-6 h-6" />
             </div>
           </button>

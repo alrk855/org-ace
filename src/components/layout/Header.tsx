@@ -9,6 +9,7 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -86,8 +87,14 @@ const Header = () => {
                   <div
                     key={item.label}
                     className="relative group"
-                    onMouseEnter={() => setActiveDropdown(item.label)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    onMouseEnter={() => {
+                      if (dropdownTimeout) clearTimeout(dropdownTimeout);
+                      setActiveDropdown(item.label);
+                    }}
+                    onMouseLeave={() => {
+                      const timeout = setTimeout(() => setActiveDropdown(null), 300);
+                      setDropdownTimeout(timeout);
+                    }}
                   >
                     <button
                       className={`flex items-center gap-1 px-4 py-2 rounded-lg transition-all ${
