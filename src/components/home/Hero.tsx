@@ -21,7 +21,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex items-center justify-center overflow-hidden -mt-[88px]"
       style={{
         backgroundImage: `url(${heroBg})`,
         backgroundSize: "cover",
