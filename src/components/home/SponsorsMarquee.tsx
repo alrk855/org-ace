@@ -1,4 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const SponsorsMarquee = () => {
   const { t } = useLanguage();
@@ -19,9 +21,14 @@ const SponsorsMarquee = () => {
       <div className="container mx-auto max-w-7xl mb-8">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('sponsorsTitle')}</h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-6">
             Thank you to our valued partners who make our mission possible
           </p>
+          <Link to="/contact">
+            <Button size="lg" className="bg-primary hover:bg-primary/90">
+              Get in Touch
+            </Button>
+          </Link>
         </div>
       </div>
 

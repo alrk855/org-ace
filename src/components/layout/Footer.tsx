@@ -118,16 +118,8 @@ const Footer = () => {
 
       {/* Footnote Bar */}
       <div className="bg-[hsl(var(--footer-footnote))] py-4 px-4">
-        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
+        <div className="container mx-auto text-center text-sm">
           <p>© 2025 @2 inc — {t('allRightsReserved')}.</p>
-          <div className="flex items-center gap-4">
-            <a href={`tel:${t('phone').replace(/\s/g, '')}`} className="hover:text-accent transition-colors">
-              {t('phone')}
-            </a>
-            <a href={`mailto:${t('email')}`} className="hover:text-accent transition-colors">
-              {t('email')}
-            </a>
-          </div>
         </div>
       </div>
     </footer>
