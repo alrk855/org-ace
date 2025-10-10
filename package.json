@@ -8,7 +8,10 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postbuild": "node scripts/make-404.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
