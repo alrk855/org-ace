@@ -1,107 +1,76 @@
-a# Welcome to your Lovable project
+# @2 inc - Building Learning Through Play
 
-## Project info
+A React + TypeScript + Vite web application for @2 inc NGO.
 
-**URL**: https://lovable.dev/projects/012fe231-c8de-447a-bd02-f703db97e305
+## Development
 
-## How can I edit this code?
+```bash
+# Install dependencies
+npm install
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/012fe231-c8de-447a-bd02-f703db97e305) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Build
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-### Deploy to GitHub Pages
-
-This project is configured for automatic deployment to GitHub Pages at:
-**https://alrk855.github.io/org-ace/**
-
-#### Automatic Deployment (Recommended)
-Simply push to the main branch:
 ```bash
-git push origin main
-```
-GitHub Actions will automatically build and deploy to the `gh-pages` branch.
-
-#### Manual Deployment
-```bash
-npm install
-npm run deploy
+# Build for production
+npm run build
 ```
 
-#### Setup GitHub Pages
-1. Go to repository **Settings** → **Pages**
-2. Set **Source:** `Deploy from a branch`
-3. Set **Branch:** `gh-pages`
-4. Set **Folder:** `/ (root)`
-5. Click **Save**
+This creates an optimized build in the `dist/` folder.
 
-The site will be live at https://alrk855.github.io/org-ace/ within 1-2 minutes.
+## Preview
 
-#### Testing Locally
 ```bash
-npm install
-npm run dev
+# Preview production build locally
+npm run preview
 ```
 
-### Deploy via Lovable
-Alternatively, open [Lovable](https://lovable.dev/projects/012fe231-c8de-447a-bd02-f703db97e305) and click on Share → Publish.
+## Technologies
 
-## Can I connect a custom domain to my Lovable project?
+- **Vite** - Fast build tool and dev server
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first styling
+- **shadcn/ui** - Component library
+- **React Router** - Client-side routing
 
-Yes, you can!
+## SPA Hosting
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Since this is a single-page application (SPA) using client-side routing, you'll need to configure your host to redirect all requests to `index.html`.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Netlify
+
+Create `netlify.toml`:
+```toml
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+### Nginx
+
+```nginx
+location / {
+  try_files $uri $uri/ /index.html;
+}
+```
+
+### Apache
+
+Create `.htaccess`:
+```apache
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+```
+
+## License
+
+All rights reserved © @2 inc

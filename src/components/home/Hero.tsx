@@ -7,6 +7,7 @@ const Hero = () => {
   const fullText = t('heroTitle');
   
   useEffect(() => {
+    setDisplayText("");
     let index = 0;
     const timer = setInterval(() => {
       if (index <= fullText.length) {
@@ -18,7 +19,7 @@ const Hero = () => {
     }, 80);
     
     return () => clearInterval(timer);
-  }, []);
+  }, [fullText]);
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-[88px] bg-gradient-to-br from-[hsl(252,39%,45%)] via-[hsl(217,49%,50%)] to-[hsl(180,100%,85%)]">
@@ -36,7 +37,6 @@ const Hero = () => {
       <div className="relative z-10 text-center px-4">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white text-balance">
           {displayText}
-          <span className="inline-block w-1 h-12 md:h-16 lg:h-20 bg-accent ml-2 animate-blink align-middle"></span>
         </h1>
       </div>
     </section>
