@@ -14,6 +14,7 @@ const WhoWeAre = () => {
   const [animatedValues, setAnimatedValues] = useState(stats.map(() => 0));
 
   useEffect(() => {
+    setAnimatedValues(stats.map(() => 0));
     const duration = 2000; // 2 seconds
     const steps = 60;
     const interval = duration / steps;
@@ -32,7 +33,7 @@ const WhoWeAre = () => {
     }, interval);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [t('projectsCount'), t('childrenCount'), t('volunteersCount')]);
 
   return (
     <section id="who-we-are" className="py-20 px-4 bg-background">

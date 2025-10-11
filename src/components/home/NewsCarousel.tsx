@@ -60,16 +60,16 @@ const NewsCarousel = () => {
           {/* Left Arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-16 h-full bg-gradient-to-r from-background/95 to-transparent flex items-center justify-start pl-3 hover:from-background transition-all duration-300 group"
+            className="absolute left-0 top-0 z-10 w-8 h-full flex items-center justify-center bg-background/80 hover:bg-background/95 transition-all duration-300 group"
             aria-label="Previous"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 backdrop-blur-sm border border-primary/20 text-primary flex items-center justify-center shadow-elegant hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group-hover:scale-110">
-              <ChevronLeft className="w-6 h-6" />
+            <div className="w-6 h-full flex items-center justify-center text-primary hover:text-primary/80 transition-colors duration-300">
+              <ChevronLeft className="w-5 h-5" />
             </div>
           </button>
 
           {/* News Cards */}
-          <div className="overflow-hidden px-16">
+          <div className="overflow-hidden px-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {visibleItems.map((item) => (
                 <Link
@@ -100,11 +100,11 @@ const NewsCarousel = () => {
           {/* Right Arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-16 h-full bg-gradient-to-l from-background/95 to-transparent flex items-center justify-end pr-3 hover:from-background transition-all duration-300 group"
+            className="absolute right-0 top-0 z-10 w-8 h-full flex items-center justify-center bg-background/80 hover:bg-background/95 transition-all duration-300 group"
             aria-label="Next"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 backdrop-blur-sm border border-primary/20 text-primary flex items-center justify-center shadow-elegant hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group-hover:scale-110">
-              <ChevronRight className="w-6 h-6" />
+            <div className="w-6 h-full flex items-center justify-center text-primary hover:text-primary/80 transition-colors duration-300">
+              <ChevronRight className="w-5 h-5" />
             </div>
           </button>
         </div>
