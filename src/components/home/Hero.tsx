@@ -22,16 +22,17 @@ const Hero = () => {
   }, [fullText]);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-[88px] bg-gradient-to-br from-[hsl(252,39%,45%)] via-[hsl(217,49%,50%)] to-[hsl(180,100%,85%)]">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-[96px] bg-gradient-to-br from-purple-900 via-indigo-800 to-cyan-500">
       {/* Animated background blobs */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(252,39%,55%)]/30 rounded-full blur-3xl animate-blob"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[hsl(217,49%,60%)]/30 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-[hsl(180,100%,75%)]/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/40 rounded-full blur-3xl animate-blob"></div>
+        <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-pink-500/30 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-[520px] h-[520px] bg-cyan-400/25 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+        <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-yellow-300/20 rounded-full blur-3xl animate-blob animation-delay-3000"></div>
       </div>
       
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-background/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/20 to-background/30"></div>
       
       {/* Content */}
       <div className="relative z-10 text-center px-4">

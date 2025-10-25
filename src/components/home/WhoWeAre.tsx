@@ -1,9 +1,11 @@
 import { Users, Heart, Target } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const WhoWeAre = () => {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
   
   const stats = [
     { icon: Target, value: parseInt(t('projectsCount')), label: t('projectsLabel') },
@@ -14,29 +16,48 @@ const WhoWeAre = () => {
   const [animatedValues, setAnimatedValues] = useState(stats.map(() => 0));
 
   useEffect(() => {
-    setAnimatedValues(stats.map(() => 0));
-    const duration = 2000; // 2 seconds
-    const steps = 60;
-    const interval = duration / steps;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            setAnimatedValues(stats.map(() => 0));
+            
+            const duration = 2000;
+            const steps = 60;
+            const interval = duration / steps;
 
-    let currentStep = 0;
-    const timer = setInterval(() => {
-      currentStep++;
-      setAnimatedValues(stats.map(stat => 
-        Math.floor((stat.value * currentStep) / steps)
-      ));
+            let currentStep = 0;
+            const timer = setInterval(() => {
+              currentStep++;
+              setAnimatedValues(stats.map(stat => 
+                Math.floor((stat.value * currentStep) / steps)
+              ));
 
-      if (currentStep >= steps) {
-        clearInterval(timer);
-        setAnimatedValues(stats.map(stat => stat.value));
+              if (currentStep >= steps) {
+                clearInterval(timer);
+                setAnimatedValues(stats.map(stat => stat.value));
+              }
+            }, interval);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
       }
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, [t('projectsCount'), t('childrenCount'), t('volunteersCount')]);
+    };
+  }, [hasAnimated, t('projectsCount'), t('childrenCount'), t('volunteersCount')]);
 
   return (
-    <section id="who-we-are" className="py-20 px-4 bg-background">
+    <section id="who-we-are" ref={sectionRef} className="py-20 px-4 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('whoWeAreTitle')}</h2>

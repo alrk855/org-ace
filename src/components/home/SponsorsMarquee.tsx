@@ -17,7 +17,7 @@ const SponsorsMarquee = () => {
   const allSponsors = [...sponsors, ...sponsors];
 
   return (
-    <section id="sponsors" className="py-16 px-4 bg-background overflow-hidden">
+    <section id="sponsors" className="py-16 px-4 bg-gradient-to-b from-muted/20 to-background overflow-hidden">
       <div className="container mx-auto max-w-7xl mb-8">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('sponsorsTitle')}</h2>

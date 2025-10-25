@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -67,15 +68,22 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${isScrolled ? "shadow-soft" : ""}`}
+      style={{ background: 'linear-gradient(135deg, #201f43 0%, #3a3870 100%)' }}
     >
-      <nav className="gradient-primary text-white">
+      <nav className="text-white">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center font-bold text-primary text-xl">
-                @2
-              </div>
-              <span className="font-bold text-lg hidden sm:inline">@2 inc</span>
+          <div className="flex items-center justify-between h-24">
+            <Link to="/" className="flex items-center gap-3 group">
+              <img src={logo} alt="COGNITA Logo" className="w-14 h-14 transition-transform duration-300 group-hover:scale-105" />
+              <span 
+                className="font-bold text-xl hidden sm:inline transition-all duration-300"
+                style={{ 
+                  color: '#d1e1ea',
+                  fontFamily: language === 'mk' ? "'Lobster', cursive" : "'Knewave', cursive"
+                }}
+              >
+                {language === 'mk' ? 'КОГНИТА' : 'COGNITA'}
+              </span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-1">
@@ -94,7 +102,7 @@ const Header = () => {
                     }}
                   >
                     <button
-                      className={`flex items-center gap-1 px-4 py-2 rounded-lg transition-all ${
+                      className={`flex items-center gap-1 px-4 py-2 rounded-lg transition-all font-semibold ${
                         activeDropdown === item.label ? "bg-white/10" : "hover:bg-white/10"
                       }`}
                     >
@@ -127,9 +135,9 @@ const Header = () => {
                   <Link
                     key={item.label}
                     to={item.href!}
-                    className={`px-4 py-2 rounded-lg transition-all ${
+                    className={`px-4 py-2 rounded-lg transition-all font-semibold ${
                       item.highlight
-                        ? "bg-accent text-accent-foreground hover:bg-accent-hover font-semibold"
+                        ? "bg-accent text-accent-foreground hover:bg-accent-hover"
                         : "hover:bg-white/10"
                     }`}
                   >
@@ -140,15 +148,29 @@ const Header = () => {
               
               <div className="ml-4 flex items-center gap-1 border-l border-white/30 pl-4">
                 <button 
-                  className={`px-3 py-1 rounded hover:bg-white/10 transition-colors ${language === 'en' ? 'font-semibold' : 'opacity-70'}`}
-                  onClick={() => setLanguage('en')}
+                  className={`px-3 py-1 rounded transition-all duration-500 transform ${
+                    language === 'en' 
+                      ? 'font-semibold bg-white/20 scale-110' 
+                      : 'opacity-70 hover:bg-white/10 scale-100'
+                  }`}
+                  onClick={() => {
+                    setLanguage('en');
+                    window.location.reload();
+                  }}
                 >
                   EN
                 </button>
                 <span className="text-white/50">|</span>
                 <button 
-                  className={`px-3 py-1 rounded hover:bg-white/10 transition-colors ${language === 'mk' ? 'font-semibold' : 'opacity-70'}`}
-                  onClick={() => setLanguage('mk')}
+                  className={`px-3 py-1 rounded transition-all duration-500 transform ${
+                    language === 'mk' 
+                      ? 'font-semibold bg-white/20 scale-110' 
+                      : 'opacity-70 hover:bg-white/10 scale-100'
+                  }`}
+                  onClick={() => {
+                    setLanguage('mk');
+                    window.location.reload();
+                  }}
                 >
                   MK
                 </button>
@@ -201,14 +223,28 @@ const Header = () => {
               )}
               <div className="flex items-center gap-2 px-4 pt-4 border-t border-white/30 mt-4">
                 <button 
-                  className={`px-4 py-2 rounded-lg ${language === 'en' ? 'bg-white/10 font-semibold' : 'hover:bg-white/10 opacity-70'}`}
-                  onClick={() => setLanguage('en')}
+                  className={`px-4 py-2 rounded-lg transition-all duration-500 transform ${
+                    language === 'en' 
+                      ? 'bg-white/20 font-semibold scale-110' 
+                      : 'hover:bg-white/10 opacity-70'
+                  }`}
+                  onClick={() => {
+                    setLanguage('en');
+                    window.location.reload();
+                  }}
                 >
                   EN
                 </button>
                 <button 
-                  className={`px-4 py-2 rounded-lg ${language === 'mk' ? 'bg-white/10 font-semibold' : 'hover:bg-white/10 opacity-70'}`}
-                  onClick={() => setLanguage('mk')}
+                  className={`px-4 py-2 rounded-lg transition-all duration-500 transform ${
+                    language === 'mk' 
+                      ? 'bg-white/20 font-semibold scale-110' 
+                      : 'hover:bg-white/10 opacity-70'
+                  }`}
+                  onClick={() => {
+                    setLanguage('mk');
+                    window.location.reload();
+                  }}
                 >
                   MK
                 </button>
