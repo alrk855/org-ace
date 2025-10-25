@@ -25,7 +25,7 @@ const About = () => {
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About @2 inc</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">About COGNITA</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Building learning through play since 2015. We are a dedicated team of educators, volunteers, and
               community members committed to making a positive impact in children's lives.
@@ -51,7 +51,7 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-6">Our Story</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-muted-foreground mb-4">
-                @2 inc was founded in 2015 by a group of passionate educators who recognized the transformative
+                COGNITA was founded in 2015 by a group of passionate educators who recognized the transformative
                 power of play in child development. What started as a small after-school program has grown into
                 a comprehensive organization serving hundreds of children across our community.
               </p>

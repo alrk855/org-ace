@@ -65,18 +65,20 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-[42px] left-0 right-0 z-40 transition-all duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${isScrolled ? "shadow-soft" : ""}`}
       style={{ background: 'linear-gradient(135deg, #201f43 0%, #3a3870 100%)' }}
     >
       <nav className="text-white">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-24">
-            <Link to="/" className="flex items-center gap-3 group">
-              <img src={logo} alt="COGNITA Logo" className="w-14 h-14 transition-transform duration-300 group-hover:scale-105" />
+          <div className="flex items-center justify-between h-28">
+            <Link to="/" className="flex items-center gap-4 group">
+              <div className="w-16 h-16 rounded-full overflow-hidden bg-white flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <img src={logo} alt="COGNITA Logo" className="w-full h-full object-contain p-1" />
+              </div>
               <span 
-                className="font-bold text-xl hidden sm:inline transition-all duration-300"
+                className="font-bold text-3xl hidden sm:inline transition-all duration-300"
                 style={{ 
                   color: '#d1e1ea',
                   fontFamily: language === 'mk' ? "'Lobster', cursive" : "'Knewave', cursive"
@@ -102,9 +104,10 @@ const Header = () => {
                     }}
                   >
                     <button
-                      className={`flex items-center gap-1 px-4 py-2 rounded-lg transition-all font-semibold ${
+                      className={`flex items-center gap-1 px-4 py-2 rounded-lg transition-all font-bold ${
                         activeDropdown === item.label ? "bg-white/10" : "hover:bg-white/10"
                       }`}
+                      style={{ fontFamily: "'Poppins', sans-serif" }}
                     >
                       {item.label}
                       {activeDropdown === item.label ? (
@@ -135,45 +138,47 @@ const Header = () => {
                   <Link
                     key={item.label}
                     to={item.href!}
-                    className={`px-4 py-2 rounded-lg transition-all font-semibold ${
+                    className={`px-4 py-2 rounded-lg transition-all font-bold ${
                       item.highlight
                         ? "bg-accent text-accent-foreground hover:bg-accent-hover"
                         : "hover:bg-white/10"
                     }`}
+                    style={{ fontFamily: "'Poppins', sans-serif" }}
                   >
                     {item.label}
                   </Link>
                 )
               )}
               
-              <div className="ml-4 flex items-center gap-1 border-l border-white/30 pl-4">
-                <button 
-                  className={`px-3 py-1 rounded transition-all duration-500 transform ${
-                    language === 'en' 
-                      ? 'font-semibold bg-white/20 scale-110' 
-                      : 'opacity-70 hover:bg-white/10 scale-100'
-                  }`}
-                  onClick={() => {
-                    setLanguage('en');
-                    window.location.reload();
-                  }}
-                >
-                  EN
-                </button>
-                <span className="text-white/50">|</span>
-                <button 
-                  className={`px-3 py-1 rounded transition-all duration-500 transform ${
-                    language === 'mk' 
-                      ? 'font-semibold bg-white/20 scale-110' 
-                      : 'opacity-70 hover:bg-white/10 scale-100'
-                  }`}
-                  onClick={() => {
-                    setLanguage('mk');
-                    window.location.reload();
-                  }}
-                >
-                  MK
-                </button>
+              <div className="ml-4 flex items-center border-l border-white/30 pl-4">
+                <div className="relative flex items-center gap-0 rounded-lg border border-white/30 bg-white/5 backdrop-blur-sm overflow-hidden p-1">
+                  <div 
+                    className="absolute inset-y-1 w-[calc(50%-4px)] bg-white/20 rounded-md transition-all duration-500 ease-out"
+                    style={{ 
+                      left: language === 'en' ? '4px' : 'calc(50% + 0px)',
+                    }}
+                  />
+                  <button 
+                    className={`relative z-10 px-4 py-1.5 rounded-md transition-all duration-300 ${
+                      language === 'en' 
+                        ? 'font-semibold text-white' 
+                        : 'text-white/70 hover:text-white/90'
+                    }`}
+                    onClick={() => setLanguage('en')}
+                  >
+                    EN
+                  </button>
+                  <button 
+                    className={`relative z-10 px-4 py-1.5 rounded-md transition-all duration-300 ${
+                      language === 'mk' 
+                        ? 'font-semibold text-white' 
+                        : 'text-white/70 hover:text-white/90'
+                    }`}
+                    onClick={() => setLanguage('mk')}
+                  >
+                    MK
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -221,33 +226,35 @@ const Header = () => {
                   </Link>
                 )
               )}
-              <div className="flex items-center gap-2 px-4 pt-4 border-t border-white/30 mt-4">
-                <button 
-                  className={`px-4 py-2 rounded-lg transition-all duration-500 transform ${
-                    language === 'en' 
-                      ? 'bg-white/20 font-semibold scale-110' 
-                      : 'hover:bg-white/10 opacity-70'
-                  }`}
-                  onClick={() => {
-                    setLanguage('en');
-                    window.location.reload();
-                  }}
-                >
-                  EN
-                </button>
-                <button 
-                  className={`px-4 py-2 rounded-lg transition-all duration-500 transform ${
-                    language === 'mk' 
-                      ? 'bg-white/20 font-semibold scale-110' 
-                      : 'hover:bg-white/10 opacity-70'
-                  }`}
-                  onClick={() => {
-                    setLanguage('mk');
-                    window.location.reload();
-                  }}
-                >
-                  MK
-                </button>
+              <div className="flex items-center justify-center px-4 pt-4 border-t border-white/30 mt-4">
+                <div className="relative flex items-center gap-0 rounded-lg border border-white/30 bg-white/5 backdrop-blur-sm overflow-hidden p-1">
+                  <div 
+                    className="absolute inset-y-1 w-[calc(50%-4px)] bg-white/20 rounded-md transition-all duration-500 ease-out"
+                    style={{ 
+                      left: language === 'en' ? '4px' : 'calc(50% + 0px)',
+                    }}
+                  />
+                  <button 
+                    className={`relative z-10 px-6 py-2 rounded-md transition-all duration-300 ${
+                      language === 'en' 
+                        ? 'font-semibold text-white' 
+                        : 'text-white/70'
+                    }`}
+                    onClick={() => setLanguage('en')}
+                  >
+                    EN
+                  </button>
+                  <button 
+                    className={`relative z-10 px-6 py-2 rounded-md transition-all duration-300 ${
+                      language === 'mk' 
+                        ? 'font-semibold text-white' 
+                        : 'text-white/70'
+                    }`}
+                    onClick={() => setLanguage('mk')}
+                  >
+                    MK
+                  </button>
+                </div>
               </div>
             </div>
           )}

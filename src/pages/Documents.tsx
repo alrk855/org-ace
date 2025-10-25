@@ -84,8 +84,8 @@ const Documents = () => {
           <div className="mt-12 bg-muted/30 rounded-[14px] p-8 text-center">
             <p className="text-muted-foreground">
               Need a document that's not listed here? Contact us at{" "}
-              <a href="mailto:info@2inc.org" className="text-primary hover:underline font-medium">
-                info@2inc.org
+              <a href="mailto:info@cognita.org" className="text-primary hover:underline font-medium">
+                info@cognita.org
               </a>
             </p>
           </div>

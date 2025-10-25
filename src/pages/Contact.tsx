@@ -118,8 +118,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="font-semibold mb-1">Email</div>
-                      <a href="mailto:info@2inc.org" className="text-muted-foreground hover:text-primary transition-colors">
-                        info@2inc.org
+                      <a href="mailto:info@cognita.org" className="text-muted-foreground hover:text-primary transition-colors">
+                        info@cognita.org
                       </a>
                     </div>
                   </div>
@@ -150,7 +150,7 @@ const Contact = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="@2 inc Location"
+                  title="COGNITA Location"
                 ></iframe>
               </div>
             </div>

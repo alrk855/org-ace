@@ -6,7 +6,7 @@ const MacedonianHome = () => {
       <section className="py-20 px-4 bg-background min-h-[60vh] flex items-center">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Добредојдовте на @2 inc
+            Добредојдовте на КОГНИТА
           </h1>
           <p className="text-xl text-muted-foreground mb-8">
             Македонската верзија на веб-страницата е во развој.

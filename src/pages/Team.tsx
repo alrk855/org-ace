@@ -8,7 +8,7 @@ const Team = () => {
       role: "Executive Director",
       bio: "Passionate about education and child development with 15 years of experience in NGO management.",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
-      email: "sarah@2inc.org",
+      email: "sarah@cognita.org",
       linkedin: "#",
     },
     {
@@ -16,7 +16,7 @@ const Team = () => {
       role: "Program Director",
       bio: "Expert in curriculum development and play-based learning methodologies.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-      email: "michael@2inc.org",
+      email: "michael@cognita.org",
       linkedin: "#",
     },
     {
@@ -24,7 +24,7 @@ const Team = () => {
       role: "Community Outreach Manager",
       bio: "Dedicated to building partnerships and expanding our reach in the community.",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
-      email: "elena@2inc.org",
+      email: "elena@cognita.org",
       linkedin: "#",
     },
     {
@@ -32,7 +32,7 @@ const Team = () => {
       role: "Volunteer Coordinator",
       bio: "Organizing and training volunteers to maximize their impact on children's lives.",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
-      email: "david@2inc.org",
+      email: "david@cognita.org",
       linkedin: "#",
     },
     {
@@ -40,7 +40,7 @@ const Team = () => {
       role: "Educational Consultant",
       bio: "Specialist in early childhood education and developmental psychology.",
       image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80",
-      email: "amara@2inc.org",
+      email: "amara@cognita.org",
       linkedin: "#",
     },
     {
@@ -48,7 +48,7 @@ const Team = () => {
       role: "Operations Manager",
       bio: "Ensuring smooth operations and resource management for all our programs.",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-      email: "james@2inc.org",
+      email: "james@cognita.org",
       linkedin: "#",
     },
   ];

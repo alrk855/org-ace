@@ -22,7 +22,7 @@ const Hero = () => {
   }, [fullText]);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-[96px] bg-gradient-to-br from-purple-900 via-indigo-800 to-cyan-500">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-[162px] bg-gradient-to-br from-purple-900 via-indigo-800 to-cyan-500">
       {/* Animated background blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-600/40 rounded-full blur-3xl animate-blob"></div>

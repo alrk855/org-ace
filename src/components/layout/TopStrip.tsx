@@ -12,7 +12,7 @@ const TopStrip = () => {
   ];
 
   return (
-    <div className="bg-[hsl(var(--top-strip-bg))] text-white py-2 px-4 text-sm">
+    <div className="bg-[hsl(var(--top-strip-bg))] text-white py-2.5 px-4 text-sm fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center gap-4">
           <a href={`tel:${t('phone').replace(/\s/g, '')}`} className="flex items-center gap-2 hover:text-accent transition-colors">

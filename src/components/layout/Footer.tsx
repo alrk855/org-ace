@@ -5,6 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -39,11 +40,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Column 1: Logo & Socials */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center font-bold text-primary text-xl">
-                @2
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-14 h-14 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                <img src={logo} alt="COGNITA Logo" className="w-full h-full object-contain p-1" />
               </div>
-              <span className="font-bold text-lg">@2 inc</span>
+              <span className="font-bold text-xl">COGNITA</span>
             </div>
             <p className="text-sm text-white/80 mb-4">
               {t('footerAbout')}
@@ -119,7 +120,7 @@ const Footer = () => {
       {/* Footnote Bar */}
       <div className="bg-[hsl(var(--footer-footnote))] py-4 px-4">
         <div className="container mx-auto text-center text-sm">
-          <p>© 2025 @2 inc — {t('allRightsReserved')}.</p>
+          <p>© 2025 COGNITA — {t('allRightsReserved')}.</p>
         </div>
       </div>
     </footer>
