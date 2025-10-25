@@ -1,7 +1,9 @@
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const News = () => {
+  const { t } = useLanguage();
   const newsArticles = [
     {
       id: 1,
@@ -58,9 +60,9 @@ const News = () => {
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">News & Updates</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('newsPageTitle')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Stay informed about our latest activities, announcements, and success stories.
+              {t('stayUpdated')}
             </p>
           </div>
 
@@ -91,7 +93,7 @@ const News = () => {
                     </h3>
                     <p className="text-muted-foreground flex-1">{article.excerpt}</p>
                     <div className="mt-4 text-primary font-medium group-hover:underline">
-                      Read more →
+                      {t('readMore')} →
                     </div>
                   </div>
                 </article>

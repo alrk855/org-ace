@@ -15,6 +15,7 @@ import News from "./pages/News";
 import Donate from "./pages/Donate";
 import Checkout from "./pages/Checkout";
 import MacedonianHome from "./pages/MacedonianHome";
+import Unsubscribe from "./pages/Unsubscribe";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/news" element={<News />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           <Route path="/mk" element={<MacedonianHome />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

@@ -1,7 +1,9 @@
 import Layout from "@/components/layout/Layout";
 import { Mail, Linkedin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Team = () => {
+  const { t } = useLanguage();
   const teamMembers = [
     {
       name: "Sarah Johnson",
@@ -58,10 +60,9 @@ const Team = () => {
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Meet Our Team</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('teamTitle')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our dedicated team of professionals works tirelessly to create meaningful learning experiences for
-              children in our community.
+              {t('dedicatedTeam')}
             </p>
           </div>
 

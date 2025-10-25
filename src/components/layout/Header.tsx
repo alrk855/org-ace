@@ -75,7 +75,7 @@ const Header = () => {
           <div className="flex items-center justify-between h-28">
             <Link to="/" className="flex items-center gap-4 group">
               <div className="w-16 h-16 rounded-full overflow-hidden bg-white flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                <img src={logo} alt="COGNITA Logo" className="w-full h-full object-contain p-1" />
+                <img src={logo} alt="COGNITA Logo" className="w-full h-full object-cover scale-[1.4]" />
               </div>
               <span 
                 className="font-bold text-3xl hidden sm:inline transition-all duration-300"

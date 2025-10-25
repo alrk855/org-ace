@@ -98,14 +98,14 @@ const Footer = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-white/10 border-white/30 text-white placeholder:text-white/50"
               />
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-3">
                 <Checkbox
                   id="newsletter-consent"
                   checked={consent}
                   onCheckedChange={(checked) => setConsent(checked as boolean)}
-                  className="mt-1"
+                  className="mt-1 border-2 border-white data-[state=checked]:bg-accent data-[state=checked]:border-accent"
                 />
-                <label htmlFor="newsletter-consent" className="text-xs text-white/70 cursor-pointer">
+                <label htmlFor="newsletter-consent" className="text-sm text-white cursor-pointer leading-relaxed">
                   {t('consentText')}
                 </label>
               </div>

@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CreditCard, Smartphone, Wallet, Heart } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Donate = () => {
+  const { t } = useLanguage();
   const [amount, setAmount] = useState<number | null>(50);
   const [customAmount, setCustomAmount] = useState("");
   const [frequency, setFrequency] = useState<"once" | "monthly">("once");
@@ -16,23 +18,21 @@ const Donate = () => {
   const handleDonate = () => {
     const finalAmount = amount || parseInt(customAmount);
     if (!finalAmount || finalAmount <= 0) {
-      toast.error("Please select or enter a valid amount");
+      toast.error(t('unsubscribeError'));
       return;
     }
     
-    // In a real implementation, this would redirect to payment gateway
-    toast.success(`Redirecting to payment gateway for ${frequency === "monthly" ? "monthly" : "one-time"} donation of $${finalAmount}`);
+    toast.success(t('proceedToPayment'));
     
-    // Simulate redirect to checkout
     setTimeout(() => {
       window.location.href = "/checkout";
     }, 1500);
   };
 
   const paymentMethods = [
-    { id: "card", icon: CreditCard, label: "Credit/Debit Card", description: "Visa, Mastercard" },
-    { id: "paypal", icon: Wallet, label: "PayPal", description: "PayPal account" },
-    { id: "bank", icon: Smartphone, label: "Bank Transfer", description: "Direct transfer" },
+    { id: "card", icon: CreditCard, label: t('creditCard'), description: t('visaMastercard') },
+    { id: "paypal", icon: Wallet, label: t('paypal'), description: t('paypalAccount') },
+    { id: "bank", icon: Smartphone, label: t('bankTransfer'), description: t('directTransfer') },
   ];
 
   return (
@@ -42,11 +42,11 @@ const Donate = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left: Payment Configuration */}
             <div>
-              <h1 className="text-4xl font-bold mb-6">Make a Donation</h1>
+              <h1 className="text-4xl font-bold mb-6">{t('makeADonation')}</h1>
               
               {/* Frequency Selection */}
               <div className="mb-8">
-                <label className="text-sm font-medium mb-3 block">Donation Frequency</label>
+                <label className="text-sm font-medium mb-3 block">{t('donationFrequency')}</label>
                 <div className="grid grid-cols-2 gap-4">
                   <button
                     onClick={() => setFrequency("once")}
@@ -56,8 +56,8 @@ const Donate = () => {
                         : "border-border hover:border-primary/50"
                     }`}
                   >
-                    <div className="font-semibold">One-time</div>
-                    <div className="text-sm text-muted-foreground">Single donation</div>
+                    <div className="font-semibold">{t('oneTime')}</div>
+                    <div className="text-sm text-muted-foreground">{t('singleDonation')}</div>
                   </button>
                   <button
                     onClick={() => setFrequency("monthly")}
@@ -67,15 +67,15 @@ const Donate = () => {
                         : "border-border hover:border-primary/50"
                     }`}
                   >
-                    <div className="font-semibold">Monthly</div>
-                    <div className="text-sm text-muted-foreground">Recurring support</div>
+                    <div className="font-semibold">{t('monthly')}</div>
+                    <div className="text-sm text-muted-foreground">{t('recurringSupport')}</div>
                   </button>
                 </div>
               </div>
 
               {/* Amount Selection */}
               <div className="mb-8">
-                <label className="text-sm font-medium mb-3 block">Select Amount</label>
+                <label className="text-sm font-medium mb-3 block">{t('selectAmount')}</label>
                 <div className="grid grid-cols-4 gap-3 mb-4">
                   {presetAmounts.map((preset) => (
                     <button
@@ -98,7 +98,7 @@ const Donate = () => {
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
                   <input
                     type="number"
-                    placeholder="Custom amount"
+                    placeholder={t('customAmountPlaceholder')}
                     value={customAmount}
                     onChange={(e) => {
                       setCustomAmount(e.target.value);
@@ -111,7 +111,7 @@ const Donate = () => {
 
               {/* Payment Method Selection */}
               <div className="mb-8">
-                <label className="text-sm font-medium mb-3 block">Payment Method</label>
+                <label className="text-sm font-medium mb-3 block">{t('paymentMethod')}</label>
                 <div className="space-y-3">
                   {paymentMethods.map((method) => (
                     <button
@@ -144,7 +144,7 @@ const Donate = () => {
                 size="lg"
                 className="w-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold py-6 rounded-[14px]"
               >
-                Proceed to Payment
+                {t('proceedToPayment')}
               </Button>
             </div>
 
@@ -155,37 +155,36 @@ const Donate = () => {
                   <Heart className="w-8 h-8" />
                 </div>
                 
-                <h2 className="text-2xl font-bold mb-4">Why Your Donation Matters</h2>
+                <h2 className="text-2xl font-bold mb-4">{t('whyDonate')}</h2>
                 
                 <div className="space-y-4 mb-6">
                   <div>
-                    <div className="font-semibold text-primary mb-1">$25 provides</div>
-                    <p className="text-muted-foreground">Learning materials for one child for a month</p>
+                    <div className="font-semibold text-primary mb-1">$25 {t('provides')}</div>
+                    <p className="text-muted-foreground">{t('learningMaterials')}</p>
                   </div>
                   
                   <div>
-                    <div className="font-semibold text-secondary mb-1">$50 supports</div>
-                    <p className="text-muted-foreground">A weekly workshop for a group of children</p>
+                    <div className="font-semibold text-secondary mb-1">$50 {t('supports')}</div>
+                    <p className="text-muted-foreground">{t('weeklyWorkshop')}</p>
                   </div>
                   
                   <div>
-                    <div className="font-semibold text-primary mb-1">$100 funds</div>
-                    <p className="text-muted-foreground">Educational equipment for our learning center</p>
+                    <div className="font-semibold text-primary mb-1">$100 {t('funds')}</div>
+                    <p className="text-muted-foreground">{t('educationalEquipment')}</p>
                   </div>
                   
                   <div>
-                    <div className="font-semibold text-secondary mb-1">$250 enables</div>
-                    <p className="text-muted-foreground">A full month of programs for multiple children</p>
+                    <div className="font-semibold text-secondary mb-1">$250 {t('enables')}</div>
+                    <p className="text-muted-foreground">{t('fullMonthProgram')}</p>
                   </div>
                 </div>
 
                 <div className="border-t pt-6">
                   <p className="text-sm text-muted-foreground mb-4">
-                    Your contribution is tax-deductible and 100% goes directly to supporting our educational
-                    programs and the children we serve.
+                    {t('taxDeductible')}
                   </p>
                   <p className="text-sm font-medium">
-                    Thank you for believing in the power of play-based learning!
+                    {t('thankYouBelieving')}
                   </p>
                 </div>
               </Card>

@@ -146,6 +146,81 @@ export const translations = {
     method: "Payment Method",
     confirmDonate: "Confirm Donation",
     backDonate: "Back to Donation",
+    thankYou: "Thank You for Your Donation!",
+    thankYouMessage: "Your generous contribution will help us continue building learning through play for children in our community.",
+    whatNext: "What Happens Next?",
+    nextStep1: "You will receive a confirmation email with your donation receipt for tax purposes.",
+    nextStep2: "Our team will send you updates on how your contribution is making a difference.",
+    nextStep3: "You'll be added to our newsletter to stay connected with our mission and impact.",
+    returnHome: "Return Home",
+    viewImpact: "View Our Impact",
+    
+    // News Page - Additional
+    newsUpdates: "News & Updates",
+    stayUpdated: "Stay informed about our latest activities, announcements, and success stories.",
+    category: "Category",
+    date: "Date",
+    announcements: "Announcements",
+    programs: "Programs",
+    events: "Events",
+    partnerships: "Partnerships",
+    
+    // Partners Page - Additional
+    ourPartners: "Our Partners & Sponsors",
+    partnersGrateful: "We're grateful for the continued support of our partners and sponsors who share our vision of building learning through play.",
+    becomePartner: "Become a Partner",
+    becomePartnerDesc: "Join us in making a difference in children's lives. We're always looking for organizations that share our commitment to education and child development.",
+    getInTouch: "Get in Touch",
+    
+    // Projects Pages - Additional
+    exploreInitiatives: "Explore our ongoing initiatives that are making a difference in children's lives right now.",
+    lookBackProjects: "Look back at our successful programs and the lasting impact they've made in our community.",
+    active: "Active",
+    completed: "Completed",
+    participants: "participants",
+    duration: "Duration",
+    impact: "Impact",
+    
+    // Donate Page - Additional
+    makeADonation: "Make a Donation",
+    donationFrequency: "Donation Frequency",
+    singleDonation: "Single donation",
+    recurringSupport: "Recurring support",
+    customAmountPlaceholder: "Custom amount",
+    proceedToPayment: "Proceed to Payment",
+    visaMastercard: "Visa, Mastercard",
+    paypalAccount: "PayPal account",
+    directTransfer: "Direct transfer",
+    provides: "provides",
+    supports: "supports",
+    funds: "funds",
+    enables: "enables",
+    learningMaterials: "Learning materials for one child for a month",
+    weeklyWorkshop: "A weekly workshop for a group of children",
+    educationalEquipment: "Educational equipment for our learning center",
+    fullMonthProgram: "A full month of programs for multiple children",
+    taxDeductible: "Your contribution is tax-deductible and 100% goes directly to supporting our educational programs and the children we serve.",
+    thankYouBelieving: "Thank you for believing in the power of play-based learning!",
+    
+    // Team Page - Additional
+    meetOurTeam: "Meet Our Team",
+    dedicatedTeam: "Our dedicated team of professionals works tirelessly to create meaningful learning experiences for children in our community.",
+    
+    // Contact Page - Additional
+    sendUsMessage: "Send Us a Message",
+    getInTouchTitle: "Get in Touch",
+    subjectLabel: "Subject",
+    subjectPlaceholder: "What is this regarding?",
+    alreadySubscribed: "Already subscribed to our newsletter?",
+    unsubscribeHere: "Unsubscribe here",
+    
+    // Unsubscribe Page
+    unsubscribeTitle: "Unsubscribe from Newsletter",
+    unsubscribeDesc: "We're sorry to see you go. Enter your email below to unsubscribe from our newsletter.",
+    unsubscribeButton: "Unsubscribe",
+    unsubscribeSuccess: "You have been successfully unsubscribed from our newsletter.",
+    unsubscribeError: "Please enter a valid email address.",
+    emailAddressLabel: "Email Address",
   },
   mk: {
     // Заглавие и Навигација
@@ -294,6 +369,81 @@ export const translations = {
     method: "Начин на Плаќање",
     confirmDonate: "Потврди Донација",
     backDonate: "Назад кон Донација",
+    thankYou: "Ви Благодариме за Вашата Донација!",
+    thankYouMessage: "Вашиот великодушен придонес ќе ни помогне да продолжиме да градиме учење преку игра за децата во нашата заедница.",
+    whatNext: "Што Следува?",
+    nextStep1: "Ќе добиете потврда по е-пошта со вашата сметка за донација за даночни цели.",
+    nextStep2: "Нашиот тим ќе ви испраќа новости за тоа како вашиот придонес прави разлика.",
+    nextStep3: "Ќе бидете додадени во нашиот билтен за да останете поврзани со нашата мисија и влијание.",
+    returnHome: "Врати се Дома",
+    viewImpact: "Погледнете го Нашето Влијание",
+    
+    // Страница Вести - Дополнително
+    newsUpdates: "Вести и Новости",
+    stayUpdated: "Останете информирани за нашите последни активности, објави и приказни за успех.",
+    category: "Категорија",
+    date: "Датум",
+    announcements: "Објави",
+    programs: "Програми",
+    events: "Настани",
+    partnerships: "Партнерства",
+    
+    // Страница Партнери - Дополнително
+    ourPartners: "Наши Партнери и Спонзори",
+    partnersGrateful: "Благодарни сме за континуираната поддршка на нашите партнери и спонзори кои ја споделуваат нашата визија за градење учење преку игра.",
+    becomePartner: "Станете Партнер",
+    becomePartnerDesc: "Придружете ни се во правењето разлика во животите на децата. Секогаш бараме организации кои ја споделуваат нашата посветеност кон образованието и развојот на децата.",
+    getInTouch: "Стапете во Контакт",
+    
+    // Страници Проекти - Дополнително
+    exploreInitiatives: "Истражете ги нашите тековни иницијативи кои прават разлика во животите на децата токму сега.",
+    lookBackProjects: "Погледнете наназад на нашите успешни програми и траен импакт кој го имале во нашата заедница.",
+    active: "Активен",
+    completed: "Завршен",
+    participants: "учесници",
+    duration: "Времетраење",
+    impact: "Влијание",
+    
+    // Страница Донирај - Дополнително
+    makeADonation: "Направете Донација",
+    donationFrequency: "Фреквенција на Донација",
+    singleDonation: "Единствена донација",
+    recurringSupport: "Повторувачка поддршка",
+    customAmountPlaceholder: "Сопствен износ",
+    proceedToPayment: "Продолжи кон Плаќање",
+    visaMastercard: "Visa, Mastercard",
+    paypalAccount: "PayPal сметка",
+    directTransfer: "Директен трансфер",
+    provides: "обезбедува",
+    supports: "поддржува",
+    funds: "финансира",
+    enables: "овозможува",
+    learningMaterials: "Материјали за учење за едно дете за еден месец",
+    weeklyWorkshop: "Неделна работилница за група деца",
+    educationalEquipment: "Образовна опрема за нашиот центар за учење",
+    fullMonthProgram: "Целосен месец програми за повеќе деца",
+    taxDeductible: "Вашиот придонес е даночно одбитен и 100% оди директно во поддршка на нашите образовни програми и децата кои ги опслужуваме.",
+    thankYouBelieving: "Ви благодариме што верувате во моќта на учењето базирано на игра!",
+    
+    // Страница Тим - Дополнително
+    meetOurTeam: "Запознајте го Нашиот Тим",
+    dedicatedTeam: "Нашиот посветен тим професионалци работи неуморно за да создаде значајни искуства за учење за децата во нашата заедница.",
+    
+    // Страница Контакт - Дополнително
+    sendUsMessage: "Испратете ни Порака",
+    getInTouchTitle: "Стапете во Контакт",
+    subjectLabel: "Предмет",
+    subjectPlaceholder: "За што се работи?",
+    alreadySubscribed: "Веќе сте претплатени на нашиот билтен?",
+    unsubscribeHere: "Отпишете се тука",
+    
+    // Страница Отпиши се
+    unsubscribeTitle: "Отпиши се од Билтенот",
+    unsubscribeDesc: "Жалиме што заминувате. Внесете ја вашата е-пошта подолу за да се отпишете од нашиот билтен.",
+    unsubscribeButton: "Отпиши се",
+    unsubscribeSuccess: "Успешно се отпишавте од нашиот билтен.",
+    unsubscribeError: "Ве молиме внесете валидна е-пошта адреса.",
+    emailAddressLabel: "Е-пошта Адреса",
   }
 };
 

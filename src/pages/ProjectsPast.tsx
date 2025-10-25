@@ -1,7 +1,9 @@
 import Layout from "@/components/layout/Layout";
 import { CheckCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProjectsPast = () => {
+  const { t } = useLanguage();
   const projects = [
     {
       title: "Summer Arts Festival 2024",
@@ -38,9 +40,9 @@ const ProjectsPast = () => {
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Past Projects</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('pastProjectsTitle')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Look back at our successful programs and the lasting impact they've made in our community.
+              {t('lookBackProjects')}
             </p>
           </div>
 

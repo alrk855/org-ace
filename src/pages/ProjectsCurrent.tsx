@@ -1,6 +1,8 @@
 import Layout from "@/components/layout/Layout";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProjectsCurrent = () => {
+  const { t } = useLanguage();
   const projects = [
     {
       title: "Creative Learning Lab",
@@ -37,9 +39,9 @@ const ProjectsCurrent = () => {
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Current Projects</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('currentProjectsTitle')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Explore our ongoing initiatives that are making a difference in children's lives right now.
+              {t('exploreInitiatives')}
             </p>
           </div>
 
@@ -59,10 +61,10 @@ const ProjectsCurrent = () => {
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="inline-block px-3 py-1 bg-trust-green/10 text-trust-green rounded-full text-sm font-medium">
-                      {project.status}
+                      {t('active')}
                     </span>
                     <span className="text-sm text-muted-foreground">
-                      {project.participants} participants
+                      {project.participants} {t('participants')}
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">

@@ -1,6 +1,8 @@
 import Layout from "@/components/layout/Layout";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Partners = () => {
+  const { t } = useLanguage();
   const partners = [
     { id: "sponsor-1", name: "Sponsor 1", description: "Supporting education initiatives since 2018", logo: "S1" },
     { id: "sponsor-2", name: "Sponsor 2", description: "Partner in community development programs", logo: "S2" },
@@ -15,10 +17,9 @@ const Partners = () => {
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Partners & Sponsors</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('partnersTitle')}</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We're grateful for the continued support of our partners and sponsors who share our vision of
-              building learning through play.
+              {t('partnersGrateful')}
             </p>
           </div>
 
@@ -39,16 +40,15 @@ const Partners = () => {
           </div>
 
           <div className="mt-16 bg-muted/30 rounded-[14px] p-8 md:p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4">Become a Partner</h2>
+            <h2 className="text-3xl font-bold mb-4">{t('becomePartner')}</h2>
             <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Join us in making a difference in children's lives. We're always looking for organizations that
-              share our commitment to education and child development.
+              {t('becomePartnerDesc')}
             </p>
             <a
               href="/contact"
               className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-[14px] font-semibold hover:bg-primary-hover transition-colors"
             >
-              Get in Touch
+              {t('getInTouch')}
             </a>
           </div>
         </div>
